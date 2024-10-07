@@ -1,0 +1,24 @@
+import numpy as np
+with open('Loan_prediction_dataset.csv') as file:
+    data = np.genfromtxt(file, dtype=None, delimiter=",", names=None, encoding='utf-8' )
+    print(data)
+
+loan_amount = data[:,8]
+print(loan_amount)
+
+#Convert loan amount to float
+loan_amount[loan_amount == ''] = '0'
+loan_amount[1:].astype(float)
+
+print(loan_amount)
+
+loan = loan_amount[1:].astype(float)
+print(loan)
+
+
+#the mean
+print(np.mean(loan))
+#the median
+print(np.median(loan))
+#the standard_deviation
+print(np.std(loan))
